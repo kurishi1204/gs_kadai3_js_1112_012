@@ -10,13 +10,73 @@
 <body>
     <h1>TODO-List</h1>
     <form>
-      <input class="task_value" type="text" />
-      <button class="task_submit" type="button">Add Task</button>
+      <input id="key" class="task_value" type="text" />
+      <button id="save" class="task_submit" type="button">Add Task</button>
     </form>
     <div id="table">
       <h2>Current Tasks</h2>
       <ul class="task_list"></ul>
     </div>
+
+    <script>
+
+    //1.Save クリックイベント
+    
+    $("#save").on("click",function(){
+        let key =$("#key").val();
+        let memo= $("#memo").val();
+        console.log(key, 'データ取得チェック key');
+        console.log(memo, 'データ取得チェック memo');
+    
+        localStorage.setItem(key, memo);
+        const html= `
+            <tr>
+                <th>${key}</th>
+                <td>${memo}</td>
+            </tr>
+        `;
+        $("#list").append(html);
+    });
+    
+    //鍵となる名前をわかっていれば値を変更できる。左側がkey、右側が値となる関係。
+    
+    //2.allclear クリックイベント
+    
+    $("#allclear").on("click",function () {
+        localStorage.clear();
+        $("#list").empty();
+    });
+    
+    //3.clear クリックイベント（keyとなるものを入力して削除ボタン押す形。
+    
+    $("#clear").on("click",function () {
+        let key =$("#key").val();
+        localStorage.removeItem(key);
+        $("#list").empty(key);
+    });
+    
+    //4.ページ読み込み：保存データ取得表示
+    console.log(localStorage.length);
+    
+    for(let i = 0; i < localStorage.length; i++){
+        let key = localStorage.key(i);
+        console.log(i);
+        console.log(key);
+        let memo = localStorage.getItem(key);
+        console.log(memo);
+    
+    
+        const html= `
+            <tr>
+                <th>${key}</th>
+                <td>${memo}</td>
+            </tr>
+        `;
+        $("#list").append(html);
+    }
+    
+    </script>
+    
     <script src="./js/script.js"></script>
     <footer><small>G's</small></footer>
 </body>
