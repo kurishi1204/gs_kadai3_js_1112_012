@@ -1,36 +1,35 @@
-const taskValue = document.getElementsByClassName('task_value')[0];
-const taskSubmit = document.getElementsByClassName('task_submit')[0];
-const taskList = document.getElementsByClassName('task_list')[0];
-
-// 追加ボタンを作成
-const addTasks = (task) => {
-  // 入力したタスクを追加・表示
-  const listItem = document.createElement('li');
-  const showItem = taskList.appendChild(listItem);
-  showItem.innerHTML = task;
-
-  // タスクに削除ボタンを付与
-  const deleteButton = document.createElement('button');
-  deleteButton.innerHTML = 'Delete';
-  listItem.appendChild(deleteButton);
-
-  // 削除ボタンをクリックし、イベントを発動（タスクが削除）
-  deleteButton.addEventListener('click', evt => {
-    evt.preventDefault();
-    deleteTasks(deleteButton);
-  });
-};
-
-// 削除ボタンにタスクを消す機能を付与
-const deleteTasks = (deleteButton) => {
-  const chosenTask = deleteButton.closest('li');
-  taskList.removeChild(chosenTask);
-};
-
-// 追加ボタンをクリックし、イベントを発動（タスクが追加）
-taskSubmit.addEventListener('click', evt => {
-  evt.preventDefault();
-  const task = taskValue.value;
-  addTasks(task);
-  taskValue.value = '';
-});
+:root { font-size: 16px; }
+main {
+  width: 480px;
+  margin: 0 auto;
+  padding: 30px 30px 50px;
+  box-shadow: 0 0 10px 0 lightgray;
+}
+input, select { margin: 0.5rem 1rem 0.5rem 0; }
+input[type='number'] { width: 30px; }
+button#submit, button#priority, button#remove {
+  padding: 5px 10px;
+  margin-top: 1rem;
+  background-color: royalblue;
+  color: white;
+  border-style: none;
+}
+button#priority { background-color: olivedrab; }
+button#remove { background-color: firebrick; }
+table {
+  margin-top: 2rem;
+  border: solid 2px lightgray;
+  border-collapse: collapse;
+}
+th, td {
+  border: solid 1px lightgray;
+  border-collapse: collapse;
+}
+th {
+  background-color: beige;
+  padding: 0 0.5rem 0;
+}
+th#todoLabel { width: 200px; }
+th#dateLabel { width: 100px; }
+td { text-align: center; }
+td input[type='checkbox'] { margin: 0; }
