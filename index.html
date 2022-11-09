@@ -4,30 +4,19 @@
 <meta charset="UTF-8">
 <title>myMemoPad</title>
 <script src="js/jquery-2.1.3.min.js"></script>
-<link rel="stylesheet" href="css/sample.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
-        <h1>To-Do-App</h1>
-    </header>
-    <main>
-        <div class="register-box" id="js-add-form">
-        <input id="js-todo-ttl" type="text" placeholder="タイトル" maxlength="25">
-        <button id="js-register-btn">登録する</button>
-        </div>
-    
-        <div class="output-flex">
-        <div class="todo-box">
-            <h2>ToDo</h2>
-            <ul class="box__list" id="js-todo-list"></ul>
-        </div>
-        <div class="done-box">
-            <h2>Done</h2>
-            <ul class="box__list" id="js-done-list"></ul>
-        </div>
-        </div>
-    </main>
+    <h1>TODO-List</h1>
+    <form>
+      <input class="task_value" type="text" />
+      <button class="task_submit" type="button">Add Task</button>
+    </form>
+    <div id="table">
+      <h2>Current Tasks</h2>
+      <ul class="task_list"></ul>
+    </div>
     <script src="./js/script.js"></script>
     <footer><small>G's</small></footer>
 </body>
