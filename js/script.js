@@ -20,10 +20,10 @@ todoRegister.addEventListener('click', () => {
     });
 });
 
- //ボタンを入れるdiv要素追加
- const btn_box = document.createElement('div'); //divタグの準備
- btn_box.setAttribute('class', 'btn-box'); //class名の指定
- litag.appendChild(btn_box); //liタグの子要素に挿入
+//  //ボタンを入れるdiv要素追加
+//  const btn_box = document.createElement('div'); //divタグの準備
+//  btn_box.setAttribute('class', 'btn-box'); //class名の指定
+//  litag.appendChild(btn_box); //liタグの子要素に挿入
 
  //完了ボタン追加
  const donebtn = document.createElement('button');
